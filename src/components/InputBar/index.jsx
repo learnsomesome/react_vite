@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
 import { createNote } from "../../store/actions/listAction";
 import "./index.scss";
 
 const InputBar = ({ _createNote }) => {
-  const [value, setValue] = useState('');
+  const [value, setValue] = useState("");
 
   const onChange = (e) => {
     setValue(e.target.value);
@@ -12,7 +12,7 @@ const InputBar = ({ _createNote }) => {
 
   const onSubmit = () => {
     if (!value.trim()) {
-      setValue('');
+      setValue("");
 
       return;
     }
@@ -24,7 +24,7 @@ const InputBar = ({ _createNote }) => {
     };
 
     _createNote(data);
-    setValue('');
+    setValue("");
   };
 
   return (

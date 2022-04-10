@@ -1,0 +1,20 @@
+@import '@/theme/mixin.scss';
+
+.header {
+  height: 64px;
+  padding: 0 16px;
+  position: sticky;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  border-bottom-width: 1px;
+  border-style: solid;
+  @include bgColor;
+  @include borderColor;
+
+  .theme-checkout-btn {
+    cursor: pointer;
+    margin-right: 24px;
+  }
+}

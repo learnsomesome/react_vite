@@ -1,3 +1,5 @@
+@import '@/theme/mixin.scss';
+
 .listArea {
 
   header {
@@ -13,10 +15,15 @@
       justify-content: space-between;
       padding: 8px 16px;
       margin: 16px 0;
-      background-color: antiquewhite;
+      border-width: 1px;
+      border-style: solid;
+      border-radius: 10px;
+      @include customize('background-color', $light: #FFF9EB, $dark: rgb(90 54 0 / 20%));
+      @include customize('border-color', $light: #FFDC48, $dark: #DEA500);
 
       &.none {
         background-color: unset;
+        border: unset;
       }
 
       .itemContent {

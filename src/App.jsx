@@ -1,10 +1,13 @@
-import { connect } from 'react-redux';
-import InputBar from './components/InputBar';
-import ListArea from './components/ListArea';
-import './App.scss';
+import { connect } from "react-redux";
+import Header from "./components/Header";
+import InputBar from "./components/InputBar";
+import ListArea from "./components/ListArea";
+import "./App.scss";
 
 function App({ unDone, done }) {
   return (
+    <>
+      <Header />
       <main className="app">
         <InputBar />
         <section className="content">
@@ -12,7 +15,8 @@ function App({ unDone, done }) {
           <ListArea title="Done" list={done} />
         </section>
       </main>
-  )
+    </>
+  );
 }
 
 const mapStateToProps = (state) => {
