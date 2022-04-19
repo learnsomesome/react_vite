@@ -1,4 +1,4 @@
-@import './variable.scss';
+@import "./variable.scss";
 
 @mixin bgColor() {
   [theme="light"] & {
@@ -29,9 +29,9 @@
 
 @mixin customize($key, $light, $dark) {
   [theme="light"] & {
-    #{$key}: $light,
+    #{$key}: $light;
   }
   [theme="dark"] & {
-    #{$key}: $dark,
+    #{$key}: $dark;
   }
 }

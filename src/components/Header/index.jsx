@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Moon, SunOne } from "@icon-park/react";
+import { Sun, Moon } from "@/assets/svg";
 import "./index.scss";
 
 const Header = () => {
@@ -16,11 +16,7 @@ const Header = () => {
         onClick={() => setTheme(theme === "light" ? "dark" : "light")}
         title={theme === "light" ? "dark" : "light"}
       >
-        {theme === "light" ? (
-          <Moon theme="filled" size="24" fill="#000000" />
-        ) : (
-          <SunOne theme="filled" size="24" fill="#f8e71c" />
-        )}
+        {theme === "light" ? <Moon /> : <Sun />}
       </div>
     </header>
   );
