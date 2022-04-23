@@ -1,4 +1,4 @@
-@import '@/theme/mixin.scss';
+@import "@/theme/mixin.scss";
 
 .header {
   height: 64px;
@@ -15,6 +15,14 @@
 
   .theme-checkout-btn {
     cursor: pointer;
-    margin-right: 24px;
+    margin-right: 12px;
+  }
+
+  .locale-checkout-btn {
+    cursor: pointer;
+
+    svg > * {
+      @include customize("stroke", $light: #333, $dark: #fff);
+    }
   }
 }

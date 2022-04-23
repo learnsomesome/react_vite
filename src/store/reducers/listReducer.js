@@ -1,5 +1,15 @@
 import { CREATE_NOTE, DELETE_NOTE, TOGGLE_NOTE } from "../actions/listAction";
 
+const filterList = (id, list) => {
+  return Object.entries(list).reduce((prev, [_id, _note]) => {
+    if (_id !== id) {
+      prev[_id] = _note;
+    }
+
+    return prev;
+  }, {});
+};
+
 const initialState = {
   list: {},
 };
@@ -22,12 +32,12 @@ export const listReducer = (state = initialState, action) => {
 
     return {
       list: {
-        ...state.list,
+        ...filterList(id, state.list),
         [id]: {
           ...note,
           isDone: !note.isDone,
         },
-      }
+      },
     };
   }
 
@@ -35,13 +45,7 @@ export const listReducer = (state = initialState, action) => {
     const id = action.payload.id;
 
     return {
-      list: Object.entries(state.list).reduce((prev, [_id, _note]) => {
-        if (_id !== id) {
-          prev[_id] = _note;
-        }
-  
-        return prev;
-      }, {})
+      list: filterList(id, state.list),
     };
   }
 

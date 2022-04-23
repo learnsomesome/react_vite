@@ -1,0 +1,15 @@
+{
+  "header": {
+    "light": "亮色主题",
+    "dark": "暗色主题",
+    "en": "英文",
+    "zh": "中文"
+  },
+  "common": {
+    "submit": "提交",
+    "none": "无",
+    "delete": "删除"
+  },
+  "undone": "未完成",
+  "done": "已完成"
+}

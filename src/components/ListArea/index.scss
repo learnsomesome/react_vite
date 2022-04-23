@@ -1,7 +1,6 @@
-@import '@/theme/mixin.scss';
+@import "@/theme/mixin.scss";
 
 .listArea {
-
   header {
     font-weight: bold;
     padding: 8px 12px;
@@ -18,8 +17,8 @@
       border-width: 1px;
       border-style: solid;
       border-radius: 10px;
-      @include customize('background-color', $light: #FFF9EB, $dark: rgb(90 54 0 / 20%));
-      @include customize('border-color', $light: #FFDC48, $dark: #DEA500);
+      @include customize("background-color", $light: #fff9eb, $dark: rgb(90 54 0 / 20%));
+      @include customize("border-color", $light: #ffdc48, $dark: #dea500);
 
       &.none {
         background-color: unset;
@@ -34,6 +33,8 @@
         display: flex;
         align-items: center;
         margin-left: 16px;
+        position: relative;
+        top: 2px;
 
         div {
           cursor: pointer;

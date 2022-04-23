@@ -1,0 +1,15 @@
+{
+  "header": {
+    "light": "Light",
+    "dark": "Dark",
+    "en": "English",
+    "zh": "Chinese"
+  },
+  "common": {
+    "submit": "Submit",
+    "none": "None",
+    "delete": "Delete"
+  },
+  "undone": "UnDone",
+  "done": "Done"
+}

@@ -1,9 +1,11 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { connect } from "react-redux";
 import { createNote } from "../../store/actions/listAction";
 import "./index.scss";
 
 const InputBar = ({ _createNote }) => {
+  const { t } = useTranslation();
   const [value, setValue] = useState("");
 
   const onChange = (e) => {
@@ -30,7 +32,7 @@ const InputBar = ({ _createNote }) => {
   return (
     <div className="inputBar">
       <input value={value} onChange={onChange} />
-      <button onClick={onSubmit}>提交</button>
+      <button onClick={onSubmit}>{t("common.submit")}</button>
     </div>
   );
 };
