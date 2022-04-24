@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { connect } from "react-redux";
+import { Input, Button } from "antd";
 import { createNote } from "../../store/actions/listAction";
 import "./index.scss";
 
@@ -31,8 +32,8 @@ const InputBar = ({ _createNote }) => {
 
   return (
     <div className="inputBar">
-      <input value={value} onChange={onChange} />
-      <button onClick={onSubmit}>{t("common.submit")}</button>
+      <Input placeholder={t("todo_enter_placeholder")} value={value} onChange={onChange} />
+      <Button onClick={onSubmit}>{t("common.submit")}</Button>
     </div>
   );
 };

@@ -17,8 +17,8 @@
       border-width: 1px;
       border-style: solid;
       border-radius: 10px;
-      @include customize("background-color", $light: #fff9eb, $dark: rgb(90 54 0 / 20%));
-      @include customize("border-color", $light: #ffdc48, $dark: #dea500);
+      @include customizeTheme("background-color", $light: #fff9eb, $dark: rgb(90 54 0 / 20%));
+      @include customizeTheme("border-color", $light: #ffdc48, $dark: #dea500);
 
       &.none {
         background-color: unset;

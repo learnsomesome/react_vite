@@ -11,5 +11,6 @@
     "delete": "删除"
   },
   "undone": "未完成",
-  "done": "已完成"
+  "done": "已完成",
+  "todo_enter_placeholder": "请输入代办事项"
 }

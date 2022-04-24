@@ -11,5 +11,6 @@
     "delete": "Delete"
   },
   "undone": "UnDone",
-  "done": "Done"
+  "done": "Done",
+  "todo_enter_placeholder": "Please enter a to-do list"
 }

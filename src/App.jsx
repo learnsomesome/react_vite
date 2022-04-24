@@ -30,8 +30,6 @@ const mapStateToProps = (state) => {
     item.isDone ? done.push(item) : unDone.push(item);
   });
 
-  console.log(state.listReducer.list);
-
   return {
     unDone,
     done,

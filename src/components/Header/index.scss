@@ -8,10 +8,8 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  border-bottom-width: 1px;
-  border-style: solid;
-  @include bgColor;
-  @include borderColor;
+  border-bottom: 1px solid;
+  @include systemTheme("border-color");
 
   .theme-checkout-btn {
     cursor: pointer;
@@ -22,7 +20,7 @@
     cursor: pointer;
 
     svg > * {
-      @include customize("stroke", $light: #333, $dark: #fff);
+      @include customizeTheme("stroke", $light: #333, $dark: #fff);
     }
   }
 }

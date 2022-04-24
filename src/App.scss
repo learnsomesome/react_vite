@@ -1,12 +1,11 @@
-@import './theme/mixin.scss';
+@import "./theme/mixin.scss";
 
 .app {
   width: 800px;
   margin: 24px auto;
   padding: 24px;
-  border-width: 1px;
-  border-style: solid;
-  @include borderColor;  
+  border: 1px solid;
+  @include systemTheme("border-color");
 
   .content {
     margin-top: 16px;
