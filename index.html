@@ -5,6 +5,61 @@
     <link rel="icon" type="image/svg+xml" href="/src/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite App</title>
+    <!-- 浅色模式 css -->
+    <link
+      id="lightThemeLink"
+      rel="stylesheet"
+      href="https://ant-design.gitee.io/index-1c150802.css"
+    />
+    <!-- 深色模式 css -->
+    <link id="darkThemeLink" rel="stylesheet" href="https://ant-design.gitee.io/dark.css" />
+    <script>
+      // 处理暗色主题刷新白屏
+      // refer to https://github.com/ant-design/ant-design/issues/31642
+      (function () {
+        var darkThemeLinkEl = document.getElementById("darkThemeLink");
+        const theme = localStorage.getItem("react-vite-theme");
+
+        if (theme === "dark") {
+          // 将预先定义的暗色主题link移动到body内
+          document.addEventListener(
+            "readystatechange",
+            function () {
+              document.head.appendChild(styleElement);
+            },
+            { once: true }
+          );
+          // load后卸载
+          window.addEventListener(
+            "load",
+            function () {
+              darkThemeLinkEl.parentNode.removeChild(darkThemeLinkEl);
+            },
+            { once: true }
+          );
+          // 清除 dark.css 中的全部 transition 待解析完后恢复
+          var styleElement = document.createElement("style");
+          styleElement.type = "text/css";
+          styleElement.innerHTML =
+            "* {transition: none !important;} html {background: rgb(20, 20, 20) !important}";
+          document.head.appendChild(styleElement);
+          document.documentElement.style.backgroundColor = "black !important";
+          window.addEventListener(
+            "load",
+            function () {
+              styleElement.remove();
+            },
+            { once: true }
+          );
+
+          // 设置系统主题
+          document.documentElement.style.colorScheme = "dark";
+        } else {
+          document.documentElement.style.colorScheme = "light";
+          darkThemeLinkEl.parentNode.removeChild(darkThemeLinkEl);
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

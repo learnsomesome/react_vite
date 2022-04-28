@@ -5,7 +5,6 @@ import App from "./App";
 import { store } from "./store";
 import { LocalProvider, AntdProvider } from "./provider";
 import "./i18n/config";
-import "./theme/antd-theme.css";
 import "./theme/global.scss";
 
 ReactDOM.render(

@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { Sun, Moon, Zh, En } from "@/assets/svg";
 import { useTranslation } from "react-i18next";
 import { LocalContext } from "../../provider/LocalProvider";
