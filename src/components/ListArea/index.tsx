@@ -1,10 +1,32 @@
 import { useTranslation } from "react-i18next";
 import { connect } from "react-redux";
+import { Action, Dispatch } from "redux";
 import { deleteNote, toggleNote } from "../../store/actions/listAction";
 import { Done, UnDone, Delete } from "@/assets/svg";
 import "./index.scss";
+import { TodoItem } from "@/store/reducers/listReducer";
 
-const ListArea = ({ title, list, _toggleNote, _deleteNote }) => {
+const ListArea = ({
+  title,
+  list,
+  _toggleNote,
+  _deleteNote,
+}: {
+  title: string;
+  list: TodoItem[];
+  _toggleNote: (id: string) => {
+    type: string;
+    payload: {
+      id: string;
+    };
+  };
+  _deleteNote: (id: string) => {
+    type: string;
+    payload: {
+      id: string;
+    };
+  };
+}) => {
   const { t } = useTranslation();
 
   return (
@@ -36,9 +58,9 @@ const ListArea = ({ title, list, _toggleNote, _deleteNote }) => {
   );
 };
 
-const mapDispatchToProps = (dispatch) => ({
-  _toggleNote: (id) => dispatch(toggleNote(id)),
-  _deleteNote: (id) => dispatch(deleteNote(id)),
+const mapDispatchToProps = (dispatch: Dispatch<Action>) => ({
+  _toggleNote: (id: string) => dispatch(toggleNote(id)),
+  _deleteNote: (id: string) => dispatch(deleteNote(id)),
 });
 
 export default connect(null, mapDispatchToProps)(ListArea);

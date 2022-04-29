@@ -1,4 +1,4 @@
-const themeSwitcher = (themeMap) => {
+const themeSwitcher = (themeMap: Record<string, string>) => {
   // 动态处理主题 link
   // refer to https://github.com/ycjcl868/theme-switcher
   const id = "theme-style";
@@ -19,7 +19,7 @@ const themeSwitcher = (themeMap) => {
     }
   });
 
-  const switcher = async (theme) => {
+  const switcher = async (theme: string) => {
     const dom = document.getElementById(id);
 
     if (dom) {

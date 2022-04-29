@@ -6,9 +6,16 @@ const themeMap = {
   dark: "https://ant-design.gitee.io/dark.css",
 };
 
-export const LocalContext = createContext();
+type LocalProviderValue = {
+  theme: string;
+  locale: string;
+  toggleTheme: () => void;
+  toggleLocale: () => void;
+};
 
-export const LocalProvider = ({ children }) => {
+export const LocalContext = createContext<LocalProviderValue>({} as LocalProviderValue);
+
+export const LocalProvider = ({ children }: { children: JSX.Element }) => {
   const defaultTheme = window.localStorage.getItem(REACT_VITE_THEME) || "light";
   const defaultLocale = window.localStorage.getItem(REACT_VITE_LOCALE) || "zh";
   const [theme, setTheme] = useState(defaultTheme);

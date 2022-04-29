@@ -1,11 +1,12 @@
 import { connect } from "react-redux";
+import { useTranslation } from "react-i18next";
 import Header from "./components/Header";
 import InputBar from "./components/InputBar";
 import ListArea from "./components/ListArea";
-import { useTranslation } from "react-i18next";
+import { TodoItem, TodoList } from "./store/reducers/listReducer";
 import "./App.scss";
 
-function App({ unDone, done }) {
+function App({ unDone, done }: Record<string, TodoItem[]>) {
   const { t } = useTranslation();
 
   return (
@@ -22,11 +23,11 @@ function App({ unDone, done }) {
   );
 }
 
-const mapStateToProps = (state) => {
-  const unDone = [];
-  const done = [];
+const mapStateToProps = (state: any) => {
+  const unDone: TodoItem[] = [];
+  const done: TodoItem[] = [];
 
-  Object.values(state.listReducer.list ?? {}).forEach((item) => {
+  Object.values((state.listReducer.list ?? {}) as TodoList).forEach((item) => {
     item.isDone ? done.push(item) : unDone.push(item);
   });
 
