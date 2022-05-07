@@ -1,5 +1,27 @@
 // light custom theme
-$light-border-color: rgba(0, 0, 0, 0.12);
+$light-theme-variables: (
+  "default-font-color": #000,
+  "default-border-color": rgba(0, 0, 0, 0.12),
+  "active-border-color": #1890ff,
+  "active-background-color": #e6f7ff,
+);
 
 // dark custom theme
-$dark-border-color: rgba(255, 255, 255, 0.12);
+$dark-theme-variables: (
+  "default-font-color": #fff,
+  "default-border-color": rgba(255, 255, 255, 0.12),
+  "active-border-color": #177ddc,
+  "active-background-color": #111b26,
+);
+
+// responsive breakpoints
+// 以 PC端 为主向 小屏 兼容 - max-width
+// 以 移动端 为主向 大屏 兼容 - min-width
+$breakpoints: (
+  "small": (
+    max-width: 767px,
+  ),
+  "medium": (
+    max-width: 991px,
+  ),
+);

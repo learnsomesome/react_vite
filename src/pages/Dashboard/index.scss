@@ -1,0 +1,17 @@
+@import "../../theme/mixin.scss";
+
+.dashboard {
+  .cardList {
+    display: grid;
+    gap: 26px;
+    grid-template-columns: repeat(3, 1fr);
+
+    @include clientSize("medium") {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include clientSize("small") {
+      grid-template-columns: 1fr;
+    }
+  }
+}

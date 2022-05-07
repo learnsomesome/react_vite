@@ -1,0 +1,47 @@
+@import "@/theme/mixin.scss";
+
+.menuLayout {
+  height: calc(100vh - 64px);
+  display: flex;
+
+  .menu {
+    height: 100%;
+    overflow-y: auto;
+    width: 16rem;
+    border-right: 1px solid;
+    @include systemTheme("default-border-color", "border-color");
+  }
+
+  & > .content {
+    flex: 1;
+    padding: 24px;
+    height: 100%;
+    overflow-y: auto;
+  }
+}
+
+.menuDrawer {
+  .logoArea {
+    cursor: pointer;
+    font-size: 1.3rem;
+    font-weight: 600;
+
+    img {
+      margin-right: 8px;
+      vertical-align: text-bottom;
+    }
+  }
+
+  .closeBtn {
+    vertical-align: middle;
+  }
+
+  .ant-drawer-body {
+    padding: 9px 16px;
+  }
+
+  .ant-menu {
+    background: unset;
+    border-right: none;
+  }
+}

@@ -2,10 +2,9 @@ import { ChangeEvent, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Action, Dispatch } from "redux";
 import { connect } from "react-redux";
-import { Input, Button } from "antd";
+import { Input } from "antd";
 import { createNote } from "../../store/actions/listAction";
 import { TodoItem } from "../../store/reducers/listReducer";
-import "./index.scss";
 
 const InputBar = ({
   _createNote,
@@ -43,8 +42,13 @@ const InputBar = ({
 
   return (
     <div className="inputBar">
-      <Input placeholder={t("todo_enter_placeholder")} value={value} onChange={onChange} />
-      <Button onClick={onSubmit}>{t("common.submit")}</Button>
+      <Input
+        enterKeyHint="done"
+        placeholder={t("todo_enter_placeholder")}
+        value={value}
+        onChange={onChange}
+        onPressEnter={onSubmit}
+      />
     </div>
   );
 };

@@ -1,0 +1,11 @@
+@import "../../theme/mixin.scss";
+
+.todoList {
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+
+  .content {
+    margin-top: 16px;
+  }
+}

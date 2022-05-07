@@ -12,5 +12,9 @@
   },
   "undone": "UnDone",
   "done": "Done",
-  "todo_enter_placeholder": "Please enter a to-do list"
+  "todo_enter_placeholder": "Please enter a to-do list",
+  "page_not_exist": "Sorry, the page you visited does not exist.",
+  "back_home": "Back Home",
+  "todo": "To-do Matters",
+  "todo_description": "Put the things that need to be done and deal with them."
 }

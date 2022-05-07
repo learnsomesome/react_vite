@@ -2,31 +2,51 @@
 
 .listArea {
   header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
     font-weight: bold;
     padding: 8px 12px;
-    border-left: 4px solid #ff7f50;
-    background-color: rgba(#ff7f50, 0.4);
+    border-left: 3px solid;
+    @include systemTheme("active-background-color", "background-color");
+    @include systemTheme("active-border-color", "border-color");
   }
   section {
+    overflow: hidden;
+    transition: height 0.3s ease;
+
     & > div {
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 8px 16px;
       margin: 16px 0;
-      border-width: 1px;
-      border-style: solid;
-      border-radius: 10px;
-      @include customizeTheme("background-color", $light: #fff9eb, $dark: rgb(90 54 0 / 20%));
-      @include customizeTheme("border-color", $light: #ffdc48, $dark: #dea500);
+      border-radius: 0.25rem;
+      @include customizeTheme(
+        "background-color",
+        $light: rgba(0, 0, 0, 0.02),
+        $dark: rgba(255, 255, 255, 0.05)
+      );
+      @include customizeTheme(
+        "box-shadow",
+        $light: inset 0 0 0 1px rgb(0 0 0 / 3%),
+        $dark: inset 0 0 0 1px rgb(255 255 255 / 6%)
+      );
 
       &.none {
         background-color: unset;
-        border: unset;
+        box-shadow: unset;
       }
 
       .itemContent {
+        white-space: nowrap;
+        overflow-x: auto;
         flex: 1;
+
+        &::-webkit-scrollbar {
+          display: none;
+        }
       }
 
       .itemOperate {

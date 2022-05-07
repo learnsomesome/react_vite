@@ -1,0 +1,73 @@
+@import "../../theme/mixin.scss";
+
+.card {
+  cursor: pointer;
+  padding: 34px;
+  border-radius: 12px;
+  border: 1px solid;
+  @include dimEffect;
+  @include systemTheme("default-border-color", "border-color");
+
+  &:hover {
+    opacity: 1;
+  }
+
+  header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 14px;
+
+    .icon {
+      margin-right: 12px;
+      transform: translateY(4px);
+
+      svg {
+        width: 18px;
+        height: 18px;
+      }
+    }
+
+    .title {
+      font-size: 17px;
+      font-weight: 600;
+      letter-spacing: 0.1px;
+      @include systemTheme("default-font-color", "color");
+    }
+  }
+
+  .description {
+    font-size: 14px;
+    line-height: 1.52;
+    max-width: 100%;
+  }
+
+  &.large {
+    padding: 60px 74px 82px;
+
+    header {
+      margin-bottom: 26px;
+
+      .title {
+        font-size: 24px;
+        font-weight: 800;
+        letter-spacing: 0;
+      }
+
+      .icon {
+        svg {
+          width: 24px;
+          height: 24px;
+        }
+      }
+    }
+
+    .description {
+      font-size: 16px;
+      line-height: 1.7;
+    }
+  }
+
+  @include clientSize("small") {
+    padding: 20px 26px 30px;
+  }
+}

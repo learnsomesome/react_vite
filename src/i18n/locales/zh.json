@@ -12,5 +12,9 @@
   },
   "undone": "未完成",
   "done": "已完成",
-  "todo_enter_placeholder": "请输入代办事项"
+  "todo_enter_placeholder": "请输入代办事项",
+  "page_not_exist": "抱歉，您访问的页面不存在。",
+  "back_home": "回到首页",
+  "todo": "代办事项",
+  "todo_description": "放置需要进行的事项，并对事项进行处理。"
 }

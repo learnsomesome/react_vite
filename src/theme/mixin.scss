@@ -1,16 +1,41 @@
 @import "./variable.scss";
 
-@mixin customizeTheme($key, $light, $dark) {
+@mixin customizeTheme($name, $light, $dark) {
   [theme="light"] & {
-    #{$key}: $light;
+    #{$name}: $light;
   }
   [theme="dark"] & {
-    #{$key}: $dark;
+    #{$name}: $dark;
   }
 }
 
-@mixin systemTheme($key) {
-  @if $key == "border-color" {
-    @include customizeTheme($key, $light-border-color, $dark-border-color);
+@mixin systemTheme($key, $name) {
+  @if (
+    map-has-key($light-theme-variables, $key) and
+      map-has-key($dark-theme-variables, $key)
+  ) {
+    @include customizeTheme(
+      $name,
+      map-get($light-theme-variables, $key),
+      map-get($dark-theme-variables, $key)
+    );
+  } @else {
+    @warn "No matching style variable found.";
   }
+}
+
+@mixin clientSize($name) {
+  @if map-has-key($breakpoints, $name) {
+    @media #{inspect(map-get($breakpoints, $name))} {
+      @content;
+    }
+  } @else {
+    @warn "Unfortunately, no value could be retrieved from `$breakpoints`. "
+          + "Please make sure it is defined in `$breakpoints` map.";
+  }
+}
+
+@mixin dimEffect {
+  opacity: 0.5;
+  transition: opacity 0.2s ease;
 }
