@@ -4,7 +4,7 @@ import { REACT_VITE_LOCALE, REACT_VITE_THEME } from "../utils/constant";
 import themeSwitcher from "../utils/themeSwitcher";
 
 const themeMap = {
-  dark: "https://ant-design.gitee.io/dark.css",
+  dark: "https://learnsomesome.github.io/static_resouces/react_vite/antd-dark.css",
 };
 
 type ClientSize = "small" | "medium" | "large";

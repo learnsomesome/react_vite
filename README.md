@@ -2,7 +2,7 @@
 
 <https://learnsomesome.github.io/react_vite_online/>
 
-### Work Log
+### Change Log
 
 - 2022/03/14 结合 `redux` 实现 TODO-list 增删改功能
 - 2022/04/10 结合 `sass` 实现 Light/Dark 主题切换功能
@@ -15,3 +15,6 @@
   - 结合 `react-router` 接入前端路由
   - 结合 `sass` 实现响应式布局
   - 界面 UI 重构
+- 2022/05/09
+  - 打包目录结构优化
+  - 通过 `vite-plugin-chunk-split` 插件实现代码分包
