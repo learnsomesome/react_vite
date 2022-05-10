@@ -1,12 +1,10 @@
-@import "../../theme/mixin.scss";
-
 .card {
   cursor: pointer;
   padding: 34px;
   border-radius: 12px;
   border: 1px solid;
   @include dimEffect;
-  @include systemTheme("default-border-color", "border-color");
+  @include systemTheme("border-color", "default-border-color");
 
   &:hover {
     opacity: 1;
@@ -27,11 +25,11 @@
       }
     }
 
-    .title {
+    .label {
       font-size: 17px;
       font-weight: 600;
       letter-spacing: 0.1px;
-      @include systemTheme("default-font-color", "color");
+      @include systemTheme("color", "default-font-color");
     }
   }
 
@@ -47,7 +45,7 @@
     header {
       margin-bottom: 26px;
 
-      .title {
+      .label {
         font-size: 24px;
         font-weight: 800;
         letter-spacing: 0;

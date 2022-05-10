@@ -1,19 +1,20 @@
-import Card from "@/components/Card";
-import { filterRoutes, routes } from "@/utils/routes";
 import { useTranslation } from "react-i18next";
-import "./index.scss";
+import Card from "@/components/Card";
+import { filterRoutes, useRoutes } from "@/utils/routes";
+import classes from "./index.module.scss";
 
 const Dashboard = () => {
+  const routes = useRoutes();
   const { t } = useTranslation();
   const _routes = filterRoutes(routes);
 
   return (
-    <div className="dashboard">
-      <section className="cardList">
+    <div className={classes.dashboard}>
+      <section className={classes.cardList}>
         {_routes.map((route) => (
           <Card
             key={route.key}
-            title={t(route.title || "")}
+            label={route.label || ""}
             icon={route.icon}
             description={t(route.description || "")}
             jumpPath={route.path}

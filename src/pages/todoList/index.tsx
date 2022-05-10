@@ -3,15 +3,15 @@ import { useTranslation } from "react-i18next";
 import InputBar from "@/components/InputBar";
 import ListArea from "@/components/ListArea";
 import { TodoItem, TodoList } from "@/store/reducers/listReducer";
-import "./index.scss";
+import classes from "./index.module.scss";
 
 const TodoListPage = ({ unDone, done }: Record<string, TodoItem[]>) => {
   const { t } = useTranslation();
 
   return (
-    <div className="todoList">
+    <div className={classes.todoList}>
       <InputBar />
-      <section className="content">
+      <section className={classes.content}>
         <ListArea title={t("undone")} list={unDone} />
         <ListArea title={t("done")} list={done} />
       </section>

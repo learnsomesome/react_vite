@@ -5,7 +5,7 @@ import { Action, Dispatch } from "redux";
 import { deleteNote, toggleNote } from "../../store/actions/listAction";
 import { Done, UnDone, Delete, ExpandDown, FoldUp } from "@/assets/svg";
 import { TodoItem } from "@/store/reducers/listReducer";
-import "./index.scss";
+import classes from "./index.module.scss";
 
 const ListArea = ({
   title,
@@ -45,7 +45,7 @@ const ListArea = ({
   }, [list, fold]);
 
   return (
-    <div className="listArea">
+    <div className={classes.listArea}>
       <header onClick={() => list.length !== 0 && setFold(!fold)}>
         {title}
         {list.length !== 0 && (fold ? <ExpandDown /> : <FoldUp />)}
@@ -54,8 +54,8 @@ const ListArea = ({
         {list.length > 0 ? (
           list.map((item) => (
             <div key={item.id}>
-              <div className="itemContent">{item.value}</div>
-              <div className="itemOperate">
+              <div className={classes.itemContent}>{item.value}</div>
+              <div className={classes.itemOperate}>
                 <div
                   onClick={() => _toggleNote(item.id)}
                   title={item.isDone ? t("undone") : t("done")}
@@ -72,7 +72,7 @@ const ListArea = ({
             </div>
           ))
         ) : (
-          <div className="none">{t("common.none")}</div>
+          <div className={classes.none}>{t("common.none")}</div>
         )}
       </section>
     </div>

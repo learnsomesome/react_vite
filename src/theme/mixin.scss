@@ -9,7 +9,7 @@
   }
 }
 
-@mixin systemTheme($key, $name) {
+@mixin systemTheme($name, $key) {
   @if (
     map-has-key($light-theme-variables, $key) and
       map-has-key($dark-theme-variables, $key)

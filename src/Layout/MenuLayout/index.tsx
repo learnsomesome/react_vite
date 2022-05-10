@@ -1,14 +1,15 @@
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import { Drawer } from "antd";
-import { filterRoutes, routes } from "@/utils/routes";
+import { filterRoutes, useRoutes } from "@/utils/routes";
 import { LocalContext } from "@/provider/LocalProvider";
 import Menu from "@/components/Menu";
 import { Close } from "../../assets/svg";
 import logo from "../../assets/svg/logo.svg";
-import "./index.scss";
+import classes from "./index.module.scss";
 
 const MenuLayout = () => {
+  const routes = useRoutes();
   const navigate = useNavigate();
   const { pathname } = useLocation();
   const { clientSize, menuVisible, toggleMenuVisible } =
@@ -28,24 +29,26 @@ const MenuLayout = () => {
   }, [pathname]);
 
   return (
-    <main className="menuLayout">
+    <main className={classes.menuLayout}>
       {clientSize ? (
         clientSize === "large" ? (
-          <section className="menu">
+          <section className={classes.menu}>
             <Menu selectedKeys={selectedKeys} routes={_routes} />
           </section>
         ) : (
           <Drawer
-            className="menuDrawer"
+            className={classes.menuDrawer}
             placement="left"
             width="83vw"
             title={
-              <div className="logoArea" onClick={() => navigate("/")}>
+              <div className={classes.logoArea} onClick={() => navigate("/")}>
                 <img src={logo} alt="Logo" width={30} />
                 React Vite
               </div>
             }
-            extra={<Close className="closeBtn" onClick={toggleMenuVisible} />}
+            extra={
+              <Close className={classes.closeBtn} onClick={toggleMenuVisible} />
+            }
             closable={false}
             visible={menuVisible}
             onClose={toggleMenuVisible}
@@ -54,7 +57,7 @@ const MenuLayout = () => {
           </Drawer>
         )
       ) : null}
-      <section className="content">
+      <section className={classes.content}>
         <Outlet />
       </section>
     </main>

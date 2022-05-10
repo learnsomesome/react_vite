@@ -1,5 +1,3 @@
-@import "@/theme/mixin.scss";
-
 .listArea {
   header {
     display: flex;
@@ -9,8 +7,8 @@
     font-weight: bold;
     padding: 8px 12px;
     border-left: 3px solid;
-    @include systemTheme("active-background-color", "background-color");
-    @include systemTheme("active-border-color", "border-color");
+    @include systemTheme("background-color", "active-background-color");
+    @include systemTheme("border-color", "active-border-color");
   }
   section {
     overflow: hidden;

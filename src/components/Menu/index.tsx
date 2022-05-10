@@ -1,6 +1,5 @@
 import { Menu as _Menu } from "antd";
 import { useNavigate } from "react-router-dom";
-import { useTranslation } from "react-i18next";
 import { Route } from "@/utils/routes";
 
 type IMenu = {
@@ -9,21 +8,20 @@ type IMenu = {
 };
 
 const Menu = (props: IMenu) => {
-  const { t } = useTranslation();
   const navigate = useNavigate();
 
   return (
-    <_Menu mode="inline" selectedKeys={props.selectedKeys}>
-      {props.routes.map((route) => (
-        <_Menu.Item
-          key={route.key}
-          icon={route.icon || null}
-          onClick={() => route.path && navigate(route.path)}
-        >
-          {t(route.title || "")}
-        </_Menu.Item>
-      ))}
-    </_Menu>
+    <_Menu
+      mode="inline"
+      selectedKeys={props.selectedKeys}
+      items={props.routes as any}
+      onClick={({ keyPath }) => {
+        const _keyPath = keyPath.reverse();
+        const path = _keyPath.map((item) => `/${item}`).join("");
+
+        navigate(path);
+      }}
+    />
   );
 };
 

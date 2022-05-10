@@ -1,5 +1,3 @@
-@import "@/theme/mixin.scss";
-
 .header {
   height: 64px;
   padding: 0 16px;
@@ -9,7 +7,7 @@
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid;
-  @include systemTheme("default-border-color", "border-color");
+  @include systemTheme("border-color", "default-border-color");
 
   .leftSide {
     display: flex;
@@ -46,7 +44,7 @@
       height: 26px;
       cursor: pointer;
       @include dimEffect;
-      @include systemTheme("default-font-color", "color");
+      @include systemTheme("color", "default-font-color");
 
       &:hover {
         opacity: 1;

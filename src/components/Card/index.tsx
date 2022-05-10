@@ -1,9 +1,9 @@
 import { useNavigate } from "react-router-dom";
-import "./index.scss";
+import classes from "./index.module.scss";
 
 type ICard = {
   size?: "default" | "large";
-  title: string;
+  label: string;
   icon?: JSX.Element;
   description?: string;
   jumpPath?: string;
@@ -15,14 +15,16 @@ const Card = (props: ICard) => {
 
   return (
     <div
-      className={`card ${props.size === "large" ? "large" : ""}`}
+      className={`${classes.card} ${props.size === "large" ? "large" : ""}`}
       onClick={() => props.jumpPath && navigate(props.jumpPath)}
     >
       <header>
-        {props.icon && <div className="icon">{props.icon}</div>}
-        <span className="title">{props.title}</span>
+        {props.icon && <div className={classes.icon}>{props.icon}</div>}
+        <span className={classes.label}>{props.label}</span>
       </header>
-      {props.description && <p className="description">{props.description}</p>}
+      {props.description && (
+        <p className={classes.description}>{props.description}</p>
+      )}
     </div>
   );
 };
