@@ -1,6 +1,7 @@
 // light custom theme
 $light-theme-variables: (
   "default-font-color": #000,
+  "secondary-font-color": #00000073,
   "default-border-color": rgba(0, 0, 0, 0.12),
   "active-border-color": #1890ff,
   "active-background-color": #e6f7ff,
@@ -9,6 +10,7 @@ $light-theme-variables: (
 // dark custom theme
 $dark-theme-variables: (
   "default-font-color": #fff,
+  "secondary-font-color": rgba(255, 255, 255, 0.6),
   "default-border-color": rgba(255, 255, 255, 0.12),
   "active-border-color": #177ddc,
   "active-background-color": #111b26,

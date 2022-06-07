@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { connect } from "react-redux";
 import { Action, Dispatch } from "redux";
-import { deleteNote, toggleNote } from "../../store/actions/listAction";
+import { deleteNote, toggleNote } from "../../../store/actions/listAction";
 import { Done, UnDone, Delete, ExpandDown, FoldUp } from "@/assets/svg";
 import { TodoItem } from "@/store/reducers/listReducer";
 import classes from "./index.module.scss";

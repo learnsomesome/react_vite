@@ -1,0 +1,32 @@
+.comments {
+  .commentHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+
+    .title {
+      display: flex;
+      align-items: baseline;
+
+      span {
+        font-size: 12px;
+        margin-left: 12px;
+        @include systemTheme("color", "secondary-font-color");
+      }
+    }
+  }
+
+  .commentContent {
+    .like {
+      &.liked {
+        color: #f5a623;
+      }
+
+      svg {
+        vertical-align: text-top;
+        margin-right: 8px;
+      }
+    }
+  }
+}

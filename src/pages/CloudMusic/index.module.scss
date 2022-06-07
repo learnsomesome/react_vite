@@ -1,0 +1,7 @@
+.cloudMusic {
+  min-width: 870px;
+
+  @include clientSize("medium") {
+    min-width: unset;
+  }
+}

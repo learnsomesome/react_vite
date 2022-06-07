@@ -22,7 +22,7 @@ const MenuLayout = () => {
     clientSize !== "large" && menuVisible && toggleMenuVisible();
 
     const matchedRoute = _routes.find(
-      (route) => route.path && pathname.endsWith(route.path)
+      (route) => route.path && pathname.includes(route.path)
     );
 
     setSelectedKeys(matchedRoute?.key ? [matchedRoute.key] : []);

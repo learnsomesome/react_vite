@@ -8,7 +8,10 @@
   "common": {
     "submit": "提交",
     "none": "无",
-    "delete": "删除"
+    "delete": "删除",
+    "loading": "加载中...",
+    "expand": "展开",
+    "collapse": "收起"
   },
   "undone": "未完成",
   "done": "已完成",
@@ -16,5 +19,18 @@
   "page_not_exist": "抱歉，您访问的页面不存在。",
   "back_home": "回到首页",
   "todo": "代办事项",
-  "todo_description": "放置需要进行的事项，并对事项进行处理。"
+  "todo_description": "放置需要进行的事项，并对事项进行处理。",
+  "cloud_music": "云音乐",
+  "cloud_music_description": "在线网易云音乐。",
+  "recommended_playlist": "推荐歌单",
+  "songs": "首歌",
+  "song_title": "歌曲标题",
+  "duration": "时长",
+  "singer": "歌手",
+  "album": "专辑",
+  "playlist_subscribers": "歌单订阅用户",
+  "comment": "评论",
+  "comments": "条评论",
+  "song_lists": "歌曲列表",
+  "song_list": "歌单"
 }

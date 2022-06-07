@@ -3,8 +3,8 @@ import { useTranslation } from "react-i18next";
 import { Action, Dispatch } from "redux";
 import { connect } from "react-redux";
 import { Input } from "antd";
-import { createNote } from "../../store/actions/listAction";
-import { TodoItem } from "../../store/reducers/listReducer";
+import { createNote } from "../../../store/actions/listAction";
+import { TodoItem } from "../../../store/reducers/listReducer";
 
 const InputBar = ({
   _createNote,

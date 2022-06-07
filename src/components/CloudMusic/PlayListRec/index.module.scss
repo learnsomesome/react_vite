@@ -1,0 +1,32 @@
+.playListRec {
+  .title {
+    margin-bottom: 24px;
+  }
+
+  .content {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+
+    @include clientSize("medium") {
+      justify-content: unset;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      margin: 0 -16px;
+      -webkit-overflow-scrolling: touch;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      .playListCard {
+        margin-bottom: 12px;
+
+        &:first-child {
+          margin-left: 16px;
+        }
+      }
+    }
+  }
+}

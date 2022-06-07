@@ -1,0 +1,67 @@
+.skeleton {
+  margin-bottom: 24px;
+}
+
+.banner {
+  margin-bottom: 24px;
+
+  @include clientSize("medium") {
+    margin: 0 0 24px;
+  }
+
+  .content {
+    position: relative;
+    min-width: 1px;
+    max-width: 730px;
+    margin: 0 auto;
+
+    @include clientSize("medium") {
+      max-width: unset;
+      border-radius: 16px;
+    }
+
+    svg {
+      position: absolute;
+      width: 48px;
+      height: 48px;
+      z-index: 1;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      @include dimEffect;
+
+      &:hover {
+        opacity: 1;
+      }
+      &.left {
+        left: -60px;
+      }
+      &.right {
+        right: -60px;
+      }
+    }
+
+    .imageWrap {
+      position: relative;
+
+      img {
+        width: 100%;
+
+        @include clientSize("medium") {
+          border-radius: 16px;
+        }
+      }
+
+      .typeText {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        padding: 2px 8px;
+        border-bottom-right-radius: 16px;
+        border-top-left-radius: 16px;
+        color: #fff;
+        letter-spacing: 1px;
+      }
+    }
+  }
+}

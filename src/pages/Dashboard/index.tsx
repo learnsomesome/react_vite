@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import Card from "@/components/Card";
+import Card from "@/components/Dashboard/Card";
 import { filterRoutes, useRoutes } from "@/utils/routes";
 import classes from "./index.module.scss";
 

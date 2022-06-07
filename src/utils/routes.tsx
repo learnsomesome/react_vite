@@ -1,9 +1,12 @@
 import { useTranslation } from "react-i18next";
-import { Todo } from "@/assets/svg";
+import { Music, Todo } from "@/assets/svg";
 import Dashboard from "@/pages/Dashboard";
 import NoMatch from "@/components/NoMatch";
 import MenuLayout from "@/Layout/MenuLayout";
-import TodoList from "@/pages/todoList";
+import TodoList from "@/pages/TodoList";
+import CloudMusic from "@/pages/CloudMusic";
+import PlayListDetailDivert from "@/pages/CloudMusic/PlayListDetail";
+import { Outlet } from "react-router-dom";
 
 export type Route = {
   hiddenInMenu?: boolean;
@@ -39,6 +42,26 @@ export const useRoutes = (): Route[] => {
           icon: <Todo />,
           element: <TodoList />,
         },
+        {
+          key: "cloud-music",
+          path: "cloud-music",
+          label: t("cloud_music"),
+          description: t("cloud_music_description"),
+          icon: <Music />,
+          element: <Outlet />,
+          children: [
+            {
+              hiddenInMenu: true,
+              index: true,
+              element: <CloudMusic />,
+            },
+            {
+              hiddenInMenu: true,
+              path: "playlist-detail",
+              element: <PlayListDetailDivert />,
+            },
+          ],
+        },
       ],
     },
     {
@@ -51,12 +74,17 @@ export const useRoutes = (): Route[] => {
 
 export const filterRoutes = (_routes: Route[]): Route[] => {
   return _routes.reduce((prevRoutes: Route[], curRoute) => {
-    if (curRoute.children) {
+    if (curRoute.children?.some((route) => !route.hiddenInMenu)) {
       return curRoute.hiddenInMenu
         ? [...prevRoutes, ...filterRoutes(curRoute.children)]
-        : [...prevRoutes, curRoute, ...filterRoutes(curRoute.children)];
+        : [
+            ...prevRoutes,
+            { ...curRoute, children: filterRoutes(curRoute.children) },
+          ];
     }
 
-    return curRoute.hiddenInMenu ? prevRoutes : [...prevRoutes, curRoute];
+    const { children, ...rest } = curRoute;
+
+    return curRoute.hiddenInMenu ? prevRoutes : [...prevRoutes, rest];
   }, []);
 };

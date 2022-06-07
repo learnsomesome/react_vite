@@ -1,0 +1,123 @@
+.playlistDetail {
+  display: flex;
+
+  .contentWrap {
+    flex: 1;
+    padding-right: 16px;
+    border-right: 1px solid;
+    @include systemTheme("border-color", "default-border-color");
+
+    .content {
+      max-width: 640px;
+      margin: 0 auto;
+
+      .summary {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 16px;
+
+        .user,
+        .tags,
+        .description {
+          margin-top: 12px;
+        }
+
+        .user {
+          font-size: 12px;
+
+          span {
+            margin-right: 12px;
+
+            &:last-child {
+              @include systemTheme("color", "secondary-font-color");
+            }
+          }
+
+          img {
+            vertical-align: middle;
+          }
+        }
+
+        .description {
+          font-size: 12px;
+        }
+
+        .foldBtn {
+          text-align: right;
+
+          svg {
+            vertical-align: text-top;
+          }
+
+          :global {
+            .ant-btn {
+              font-size: 12px;
+              margin: 0;
+              padding: 0;
+            }
+          }
+        }
+      }
+
+      .tracks {
+        .trackHeader {
+          display: flex;
+          justify-content: space-between;
+          align-items: baseline;
+          margin-bottom: 12px;
+
+          span {
+            font-size: 12px;
+            @include systemTheme("color", "secondary-font-color");
+          }
+        }
+
+        :global {
+          .ant-table {
+            font-size: 12px;
+          }
+        }
+      }
+
+      .comments {
+        margin-top: 16px;
+      }
+    }
+  }
+
+  .extra {
+    width: 270px;
+    padding: 0 40px;
+
+    section {
+      p {
+        margin-bottom: 12px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid;
+        @include systemTheme("border-color", "default-border-color");
+      }
+
+      .subscribers {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+
+        & > div {
+          margin-bottom: 12px;
+          text-align: center;
+
+          &:nth-child(4n + 1) {
+            text-align: left;
+          }
+
+          &:nth-child(4n) {
+            text-align: right;
+          }
+        }
+
+        img {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

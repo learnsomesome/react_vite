@@ -8,7 +8,10 @@
   "common": {
     "submit": "Submit",
     "none": "None",
-    "delete": "Delete"
+    "delete": "Delete",
+    "loading": "Loading...",
+    "expand": "Expand",
+    "collapse": "Collapse"
   },
   "undone": "UnDone",
   "done": "Done",
@@ -16,5 +19,17 @@
   "page_not_exist": "Sorry, the page you visited does not exist.",
   "back_home": "Back Home",
   "todo": "To-do Matters",
-  "todo_description": "Put the things that need to be done and deal with them."
+  "todo_description": "Put the things that need to be done and deal with them.",
+  "cloud_music": "Cloud Music",
+  "cloud_music_description": "Online NTES cloud music.",
+  "recommended_playlist": "Recommended Playlist",
+  "songs": "Songs",
+  "song_title": "Song Title",
+  "duration": "Duration",
+  "singer": "Singer",
+  "album": "Album",
+  "comment": "Comment",
+  "comments": "Comments",
+  "song_lists": "Song List",
+  "song_list": "Song List"
 }
