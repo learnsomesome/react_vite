@@ -12,7 +12,7 @@ ReactDOM.render(
   <LocalProvider>
     <AntdProvider>
       <Provider store={store}>
-        <BrowserRouter basename={import.meta.env.VITE_APP_BASE_NAME}>
+        <BrowserRouter>
           <React.StrictMode>
             <App />
           </React.StrictMode>

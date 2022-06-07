@@ -1,6 +1,6 @@
 ### Preview Address
 
-<https://learnsomesome.github.io/react_vite_online/>
+<https://react-vite-six.vercel.app/>
 
 ### Change Log
 
@@ -18,4 +18,5 @@
 - 2022/05/09
   - 打包目录结构优化
   - 通过 `vite-plugin-chunk-split` 插件实现代码分包
-- 2022/5/10 `sass` 模块化
+- 2022/05/10 `sass` 模块化
+- 2022/06/07 `Vervel` 部署
