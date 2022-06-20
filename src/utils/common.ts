@@ -1,5 +1,9 @@
 // 数量格式化显示
-export const formatCountDisplay = (count: number) => {
+export const formatCountDisplay = (count: number, threshold?: number) => {
+  if (threshold && count < threshold) {
+    return count;
+  }
+
   if (count < 10000) {
     return count;
   }

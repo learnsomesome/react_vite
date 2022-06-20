@@ -1,0 +1,38 @@
+.controlBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-radius: 32px;
+  @include systemTheme("background-color", "active-background-color");
+  @include customizeTheme(
+    "box-shadow",
+    $light: 0 0 20px rgba(0, 0, 0, 0.6),
+    $dark: 0 0 20px rgba(255, 255, 255, 0.6)
+  );
+
+  .action {
+    flex: 1;
+    text-align: center;
+    white-space: nowrap;
+    padding: 0 20px;
+
+    &:not(:last-child) {
+      border-right: 1px solid;
+      @include systemTheme("border-color", "default-border-color");
+    }
+
+    .icon {
+      margin-right: 6px;
+
+      svg {
+        vertical-align: middle;
+      }
+    }
+
+    .name {
+      font-size: 12px;
+      font-weight: 600;
+    }
+  }
+}

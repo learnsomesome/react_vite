@@ -22,7 +22,9 @@ export type ITrack = {
   name: string;
   dt: number;
   ar: ISinger[];
-  al: IAlbum[];
+  al: IAlbum;
+  sq: Record<string, number>;
+  fee: number;
 };
 
 export type ISubscriber = {
@@ -39,6 +41,9 @@ export type IPlayListDetail = {
   tags: string[];
   description: string;
   trackCount: number;
+  subscribedCount: number;
+  commentCount: number;
+  shareCount: number;
   subscribers: ISubscriber[];
   creator: {
     avatarUrl: string;

@@ -41,11 +41,6 @@
         white-space: nowrap;
         overflow-x: auto;
         flex: 1;
-        -webkit-overflow-scrolling: touch;
-
-        &::-webkit-scrollbar {
-          display: none;
-        }
       }
 
       .itemOperate {

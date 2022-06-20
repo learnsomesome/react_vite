@@ -14,3 +14,7 @@ export { ReactComponent as Left } from "./left.svg";
 export { ReactComponent as Play } from "./play.svg";
 export { ReactComponent as Like } from "./like.svg";
 export { ReactComponent as Liked } from "./liked.svg";
+export { ReactComponent as CollectFolder } from "./collect_folder.svg";
+export { ReactComponent as Comment } from "./comment.svg";
+export { ReactComponent as Share } from "./share.svg";
+export { ReactComponent as More } from "./more.svg";

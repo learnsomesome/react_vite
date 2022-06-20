@@ -4,7 +4,7 @@ $light-theme-variables: (
   "secondary-font-color": #00000073,
   "default-border-color": rgba(0, 0, 0, 0.12),
   "active-border-color": #1890ff,
-  "active-background-color": #e6f7ff,
+  "active-background-color": #f6f6f6,
 );
 
 // dark custom theme
@@ -13,7 +13,7 @@ $dark-theme-variables: (
   "secondary-font-color": rgba(255, 255, 255, 0.6),
   "default-border-color": rgba(255, 255, 255, 0.12),
   "active-border-color": #177ddc,
-  "active-background-color": #111b26,
+  "active-background-color": #1f1f21,
 );
 
 // responsive breakpoints

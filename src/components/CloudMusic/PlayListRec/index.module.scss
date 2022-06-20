@@ -14,11 +14,6 @@
       flex-wrap: nowrap;
       overflow-x: auto;
       margin: 0 -16px;
-      -webkit-overflow-scrolling: touch;
-
-      &::-webkit-scrollbar {
-        display: none;
-      }
 
       .playListCard {
         margin-bottom: 12px;

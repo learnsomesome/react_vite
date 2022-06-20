@@ -6,14 +6,16 @@ import classes from "./index.module.scss";
 const AppBar = ({
   title,
   actions,
+  className,
 }: {
   title: ReactNode;
   actions?: ReactNode[];
+  className?: string;
 }) => {
   const navigate = useNavigate();
 
   return (
-    <header className={classes.appBar}>
+    <header className={`${classes.appBar} ${className}`}>
       <div className={classes.back} onClick={() => navigate(-1)}>
         <Left width={36} height={36} />
       </div>

@@ -1,3 +1,11 @@
+* {
+  @include clientSize("medium") {
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}
+
 #root {
   height: 100%;
   overflow: hidden;

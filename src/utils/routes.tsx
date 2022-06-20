@@ -7,6 +7,7 @@ import TodoList from "@/pages/TodoList";
 import CloudMusic from "@/pages/CloudMusic";
 import PlayListDetailDivert from "@/pages/CloudMusic/PlayListDetail";
 import { Outlet } from "react-router-dom";
+import MobileComments from "@/pages/CloudMusic/Comments";
 
 export type Route = {
   hiddenInMenu?: boolean;
@@ -59,6 +60,11 @@ export const useRoutes = (): Route[] => {
               hiddenInMenu: true,
               path: "playlist-detail",
               element: <PlayListDetailDivert />,
+            },
+            {
+              hiddenInMenu: true,
+              path: "comments",
+              element: <MobileComments />,
             },
           ],
         },
