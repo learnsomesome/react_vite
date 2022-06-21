@@ -89,10 +89,11 @@ const MobilePlayListDetail = ({
         <List
           itemLayout="horizontal"
           dataSource={data.tracks}
-          renderItem={(track) => (
+          renderItem={(track, index) => (
             <List.Item actions={[<More width={28} height={28} />]}>
               <Skeleton active title={false} loading={data.tracks.length === 0}>
                 <List.Item.Meta
+                  avatar={<span>{index}</span>}
                   title={track.name}
                   description={
                     <>

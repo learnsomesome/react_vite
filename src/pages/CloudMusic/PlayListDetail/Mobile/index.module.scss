@@ -1,7 +1,9 @@
 .playListDetail {
+  margin: -16px -16px 0;
+
   .contentWrap {
     position: relative;
-    margin: -16px -16px 48px;
+    margin-bottom: 48px;
     padding: 16px 16px 32px;
     border-bottom-left-radius: 16%;
     border-bottom-right-radius: 16%;
@@ -70,7 +72,17 @@
   }
 
   .tracks {
+    padding: 0 16px;
+
     :global {
+      .ant-list-item-meta-avatar {
+        height: 48px;
+        line-height: 48px;
+        font-size: 20px;
+
+        @include systemTheme("color", "secondary-font-color");
+      }
+
       .ant-list-item-meta-content {
         * {
           overflow: hidden;
