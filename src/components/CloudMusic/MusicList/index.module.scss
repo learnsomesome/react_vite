@@ -1,0 +1,88 @@
+.musicList {
+  :global {
+    .ant-drawer-content-wrapper .ant-drawer-content {
+      border-radius: 16px;
+      width: 90%;
+      margin: -16px auto;
+
+      .ant-drawer-body {
+        padding: 16px;
+      }
+    }
+  }
+
+  .title {
+    display: flex;
+    align-items: baseline;
+    margin-bottom: 8px;
+
+    h3 {
+      font-weight: 600;
+    }
+
+    span {
+      font-size: 12px;
+      letter-spacing: 1px;
+      margin-left: 4px;
+      @include systemTheme("color", "secondary-font-color");
+    }
+  }
+
+  .actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+
+    .delete {
+      color: #808080;
+    }
+  }
+
+  .list {
+    height: calc(100% - 70px);
+    overflow: auto;
+
+    .song {
+      display: flex;
+      align-items: center;
+      padding: 12px 0;
+
+      & > span {
+        flex: 1;
+        width: 1px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+
+        &.active,
+        &.active * {
+          color: $active-music-font-color !important;
+        }
+
+        .songName {
+          font-size: 14px;
+        }
+
+        .arName {
+          font-size: 12px;
+          @include systemTheme("color", "secondary-font-color");
+        }
+      }
+    }
+
+    .acoustic {
+      color: $active-music-font-color;
+      margin-right: 12px;
+      vertical-align: text-top;
+    }
+
+    .close {
+      cursor: pointer;
+      color: #808080;
+      position: relative;
+      top: 2px;
+      margin-left: 12px;
+    }
+  }
+}

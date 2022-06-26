@@ -1,11 +1,21 @@
-import { CollectFolder, Comment, More, Right, Share } from "@/assets/svg";
+import {
+  Acoustic,
+  CollectFolder,
+  Comment,
+  More,
+  Right,
+  Share,
+} from "@/assets/svg";
 import AppBar from "@/components/AppBar";
 import ControlBar from "@/components/CloudMusic/ControlBar";
 import PlayListCard from "@/components/CloudMusic/PlayListCard";
+import { IRootState } from "@/store";
+import { updateSongsList } from "@/store/actions/audioAction";
 import { formatCountDisplay } from "@/utils/common";
 import { Avatar, List, Skeleton, Tag } from "antd";
 import { useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { IPlayListDetail } from "..";
 import classes from "./index.module.scss";
@@ -20,6 +30,10 @@ const MobilePlayListDetail = ({
   theme: string;
 }) => {
   const { t } = useTranslation();
+  const { currentSongId } = useSelector(
+    (state: IRootState) => state.audioReducer
+  );
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const maskRef = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
@@ -90,10 +104,20 @@ const MobilePlayListDetail = ({
           itemLayout="horizontal"
           dataSource={data.tracks}
           renderItem={(track, index) => (
-            <List.Item actions={[<More width={28} height={28} />]}>
+            <List.Item
+              className={currentSongId === track.id ? classes.active : ""}
+              actions={[<More width={28} height={28} />]}
+              onClick={() => dispatch(updateSongsList(track))}
+            >
               <Skeleton active title={false} loading={data.tracks.length === 0}>
                 <List.Item.Meta
-                  avatar={<span>{index}</span>}
+                  avatar={
+                    currentSongId === track.id ? (
+                      <Acoustic className={classes.acoustic} />
+                    ) : (
+                      <span>{index}</span>
+                    )
+                  }
                   title={track.name}
                   description={
                     <>

@@ -9,6 +9,10 @@
     justify-content: flex-start;
     flex-wrap: wrap;
 
+    .playListCard {
+      margin-bottom: 12px;
+    }
+
     @include clientSize("medium") {
       justify-content: unset;
       flex-wrap: nowrap;
@@ -16,8 +20,6 @@
       margin: 0 -16px;
 
       .playListCard {
-        margin-bottom: 12px;
-
         &:first-child {
           margin-left: 16px;
         }

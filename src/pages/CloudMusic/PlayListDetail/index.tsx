@@ -15,6 +15,7 @@ export type ISinger = {
 export type IAlbum = {
   id: number;
   name: string;
+  picUrl: string;
 };
 
 export type ITrack = {
@@ -50,6 +51,15 @@ export type IPlayListDetail = {
     nickname: string;
   };
   tracks: ITrack[];
+};
+
+export type ITrackSource = {
+  fee: number;
+  freeTrialInfo: {
+    end: number;
+    start: number;
+  };
+  url: string;
 };
 
 const PlayListDetailDivert = () => {

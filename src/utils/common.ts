@@ -12,7 +12,7 @@ export const formatCountDisplay = (count: number, threshold?: number) => {
     return `${Math.round(count / 10000)} 万`;
   }
 
-  return `${((count / 10000) * 10000).toFixed(1)} 亿`;
+  return `${(count / (10000 * 10000)).toFixed(1)} 亿`;
 };
 
 // 时长格式化显示

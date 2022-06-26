@@ -8,6 +8,7 @@ import CloudMusic from "@/pages/CloudMusic";
 import PlayListDetailDivert from "@/pages/CloudMusic/PlayListDetail";
 import { Outlet } from "react-router-dom";
 import MobileComments from "@/pages/CloudMusic/Comments";
+import AudioPlayer from "@/components/CloudMusic/AudioPlayer";
 
 export type Route = {
   hiddenInMenu?: boolean;
@@ -49,7 +50,12 @@ export const useRoutes = (): Route[] => {
           label: t("cloud_music"),
           description: t("cloud_music_description"),
           icon: <Music />,
-          element: <Outlet />,
+          element: (
+            <>
+              <Outlet />
+              <AudioPlayer />
+            </>
+          ),
           children: [
             {
               hiddenInMenu: true,

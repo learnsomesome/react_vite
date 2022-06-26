@@ -32,5 +32,6 @@
   "comment": "评论",
   "comments": "条评论",
   "song_lists": "歌曲列表",
-  "song_list": "歌单"
+  "song_list": "歌单",
+  "currently_playing": "当前播放"
 }

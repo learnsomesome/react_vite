@@ -1,0 +1,64 @@
+.audioPlayer {
+  height: 56px;
+  position: fixed;
+  bottom: 0;
+  left: 256px;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: transform 1s;
+  border: 1px solid;
+  padding: 0 16px;
+  @include systemTheme("border-color", "default-border-color");
+  @include systemTheme("background-color", "secondary-background-color");
+
+  &.hide {
+    transform: translateY(106%);
+  }
+
+  .track {
+    display: flex;
+    align-items: center;
+    flex: 1;
+
+    img {
+      border-radius: 50%;
+      width: 48px;
+      height: 48px;
+      position: relative;
+      top: -8px;
+      margin-right: 12px;
+    }
+
+    & > span {
+      flex: 1;
+      width: 1px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+
+      .songName {
+        font-size: 16px;
+      }
+
+      .arName {
+        font-size: 12px;
+        @include systemTheme("color", "secondary-font-color");
+      }
+    }
+  }
+
+  .action {
+    svg {
+      cursor: pointer;
+      width: 28px;
+      height: 28px;
+      margin-left: 16px;
+    }
+  }
+
+  @include clientSize("medium") {
+    left: 0;
+  }
+}

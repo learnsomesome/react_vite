@@ -19,7 +19,8 @@
     "react-i18next": "^11.16.7",
     "react-redux": "^7.2.6",
     "react-router-dom": "^6.3.0",
-    "redux": "^4.1.2"
+    "redux": "^4.1.2",
+    "redux-thunk": "^2.4.1"
   },
   "devDependencies": {
     "@types/lodash.throttle": "^4.1.7",

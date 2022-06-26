@@ -7,6 +7,8 @@ import Menu from "@/components/Menu";
 import { Close } from "../../assets/svg";
 import logo from "../../assets/svg/logo.svg";
 import classes from "./index.module.scss";
+import { IRootState } from "@/store";
+import { useSelector } from "react-redux";
 
 const MenuLayout = () => {
   const routes = useRoutes();
@@ -14,6 +16,7 @@ const MenuLayout = () => {
   const { pathname } = useLocation();
   const { clientSize, menuVisible, toggleMenuVisible } =
     useContext(LocalContext);
+  const { hide } = useSelector((state: IRootState) => state.audioReducer);
   const [selectedKeys, setSelectedKeys] = useState<string[]>([]);
 
   const _routes = filterRoutes(routes);
@@ -57,7 +60,10 @@ const MenuLayout = () => {
           </Drawer>
         )
       ) : null}
-      <section className={classes.content}>
+      <section
+        className={classes.content}
+        style={hide ? {} : { paddingBottom: "72px" }}
+      >
         <Outlet />
       </section>
     </main>

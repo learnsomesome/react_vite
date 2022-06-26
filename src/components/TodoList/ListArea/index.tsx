@@ -1,35 +1,15 @@
 import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { connect } from "react-redux";
-import { Action, Dispatch } from "redux";
+import { useDispatch } from "react-redux";
 import { deleteNote, toggleNote } from "../../../store/actions/listAction";
 import { Done, UnDone, Delete, ExpandDown, FoldUp } from "@/assets/svg";
-import { TodoItem } from "@/store/reducers/listReducer";
+import { ITodoItem } from "@/store/reducers/listReducer";
 import classes from "./index.module.scss";
 
-const ListArea = ({
-  title,
-  list,
-  _toggleNote,
-  _deleteNote,
-}: {
-  title: string;
-  list: TodoItem[];
-  _toggleNote: (id: string) => {
-    type: string;
-    payload: {
-      id: string;
-    };
-  };
-  _deleteNote: (id: string) => {
-    type: string;
-    payload: {
-      id: string;
-    };
-  };
-}) => {
+const ListArea = ({ title, list }: { title: string; list: ITodoItem[] }) => {
   const contentRef = useRef<HTMLElement>(null);
   const { t } = useTranslation();
+  const dispatch = useDispatch();
   const [fold, setFold] = useState(false);
 
   useEffect(() => {
@@ -57,13 +37,13 @@ const ListArea = ({
               <div className={classes.itemContent}>{item.value}</div>
               <div className={classes.itemOperate}>
                 <div
-                  onClick={() => _toggleNote(item.id)}
+                  onClick={() => dispatch(toggleNote(item.id))}
                   title={item.isDone ? t("undone") : t("done")}
                 >
                   {item.isDone ? <UnDone /> : <Done />}
                 </div>
                 <div
-                  onClick={() => _deleteNote(item.id)}
+                  onClick={() => dispatch(deleteNote(item.id))}
                   title={t("common.delete")}
                 >
                   <Delete />
@@ -79,9 +59,4 @@ const ListArea = ({
   );
 };
 
-const mapDispatchToProps = (dispatch: Dispatch<Action>) => ({
-  _toggleNote: (id: string) => dispatch(toggleNote(id)),
-  _deleteNote: (id: string) => dispatch(deleteNote(id)),
-});
-
-export default connect(null, mapDispatchToProps)(ListArea);
+export default ListArea;

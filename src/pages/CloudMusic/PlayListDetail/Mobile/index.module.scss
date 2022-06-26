@@ -74,6 +74,13 @@
   .tracks {
     padding: 0 16px;
 
+    .active {
+      .acoustic,
+      h4 {
+        color: $active-music-font-color;
+      }
+    }
+
     :global {
       .ant-list-item-meta-avatar {
         height: 48px;
@@ -129,7 +136,7 @@
   }
 
   &.visible {
-    z-index: unset;
+    z-index: 1;
     opacity: 1;
   }
 

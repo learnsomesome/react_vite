@@ -11,3 +11,14 @@ declare module "*.svg" {
   const src: string;
   export default src;
 }
+
+import "axios";
+
+declare module "axios" {
+  export interface AxiosRequestConfig {
+    /**
+     * 请求过程是否显示 loading 动画
+     */
+    loading?: boolean;
+  }
+}

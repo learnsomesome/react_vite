@@ -1,22 +1,12 @@
 import { ChangeEvent, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Action, Dispatch } from "redux";
-import { connect } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Input } from "antd";
 import { createNote } from "../../../store/actions/listAction";
-import { TodoItem } from "../../../store/reducers/listReducer";
 
-const InputBar = ({
-  _createNote,
-}: {
-  _createNote: (data: TodoItem) => {
-    type: string;
-    payload: {
-      note: TodoItem;
-    };
-  };
-}) => {
+const InputBar = () => {
   const { t } = useTranslation();
+  const dispatch = useDispatch();
   const [value, setValue] = useState("");
 
   const onChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -36,7 +26,7 @@ const InputBar = ({
       isDone: false,
     };
 
-    _createNote(data);
+    dispatch(createNote(data));
     setValue("");
   };
 
@@ -53,8 +43,4 @@ const InputBar = ({
   );
 };
 
-const mapDispatchToProps = (dispatch: Dispatch<Action>) => ({
-  _createNote: (data: TodoItem) => dispatch(createNote(data)),
-});
-
-export default connect(null, mapDispatchToProps)(InputBar);
+export default InputBar;

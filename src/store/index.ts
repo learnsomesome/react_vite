@@ -1,8 +1,16 @@
-import { combineReducers, createStore } from 'redux';
-import { listReducer } from './reducers/listReducer';
+import { applyMiddleware, combineReducers, createStore } from "redux";
+import thunk from "redux-thunk";
+import { audioReducer, IAudioState } from "./reducers/audioReducer";
+import { IListState, listReducer } from "./reducers/listReducer";
 
-const reducers = combineReducers({
+export type IRootState = {
+  audioReducer: IAudioState;
+  listReducer: IListState;
+};
+
+const reducers = combineReducers<IRootState>({
+  audioReducer,
   listReducer,
 });
 
-export const store = createStore(reducers);
+export const store = createStore(reducers, applyMiddleware(thunk));
