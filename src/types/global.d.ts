@@ -22,3 +22,12 @@ declare module "axios" {
     loading?: boolean;
   }
 }
+
+declare global {
+  interface Window {
+    $Loading: {
+      start: () => void;
+      end: () => void;
+    };
+  }
+}

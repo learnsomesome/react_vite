@@ -42,10 +42,11 @@ export const updateSongsList =
       return;
     }
 
+    window.$Loading.start();
+
     const res = await io
       .get("/check/music", {
         params: { id: song.id },
-        loading: true,
       })
       .catch((error) => {
         if (error.response.status === 404) {
@@ -59,6 +60,8 @@ export const updateSongsList =
       const { data } = await io.get("/song/url", {
         params: { id: song.id },
       });
+
+      window.$Loading.end();
 
       dispatch({
         type: UPDATE_SONGS_LIST,

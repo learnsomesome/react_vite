@@ -129,7 +129,13 @@ const AudioPlayer = () => {
       {currentSong && (
         <>
           <div className={classes.track}>
-            <img src={currentSong.al.picUrl} alt="cover-image" />
+            <img
+              className={`${classes.rotate} ${
+                paused && classes.animationPause
+              }`}
+              src={currentSong.al.picUrl}
+              alt="cover-image"
+            />
             <span>
               <span className={classes.songName}>{currentSong.name}</span>
               <span className={classes.arName}>
