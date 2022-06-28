@@ -51,9 +51,6 @@ export default defineConfig({
     visualizer(),
     chunkSplitPlugin({
       strategy: "default",
-      customSplitting: {
-        antd_vendor: ["antd"],
-      },
     }),
   ],
   resolve: {

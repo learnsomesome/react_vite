@@ -1,7 +1,7 @@
 import { ITrack } from "@/pages/CloudMusic/PlayListDetail";
 import io from "@/utils/io";
 import { Dispatch } from "redux";
-import { message as Message } from "antd";
+import { message as _message } from "antd";
 import { IPlayType } from "../reducers/audioReducer";
 
 export const INIT_AUDIO = "INIT_AUDIO";
@@ -50,7 +50,7 @@ export const updateSongsList =
       })
       .catch((error) => {
         if (error.response.status === 404) {
-          return Message.error(error.response.data.message);
+          return _message.error(error.response.data.message);
         }
 
         return error.globalErrorProcesser();
