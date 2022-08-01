@@ -1,5 +1,9 @@
+import { message } from "antd";
 import axios from "axios";
-import { REACT_VITE_CLOUD_MUSIC_BASE_URL } from "./constant";
+import {
+  GLOBAL_ERROR_MESSAGES,
+  REACT_VITE_CLOUD_MUSIC_BASE_URL,
+} from "./constant";
 
 const io = axios.create({
   baseURL: REACT_VITE_CLOUD_MUSIC_BASE_URL,
@@ -32,7 +36,8 @@ io.interceptors.response.use(
     window.$Loading.end();
 
     error.globalErrorProcess = function () {
-      if (this.response.status === 401) {
+      if (Object.keys(GLOBAL_ERROR_MESSAGES).includes(this.response.status)) {
+        message.error(GLOBAL_ERROR_MESSAGES[this.response.status]);
       }
 
       return Promise.reject(this);

@@ -32,5 +32,8 @@
   "comments": "Comments",
   "song_lists": "Song List",
   "song_list": "Song List",
-  "currently_playing": "Currently Playing"
+  "currently_playing": "Currently Playing",
+  "errors": {
+    "internal_server_error": "Internal server error"
+  }
 }

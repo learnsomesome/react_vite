@@ -46,7 +46,7 @@ const ListArea = ({ title, list }: { title: string; list: ITodoItem[] }) => {
                   onClick={() => dispatch(deleteNote(item.id))}
                   title={t("common.delete")}
                 >
-                  <Delete />
+                  <Delete color="#e84749" />
                 </div>
               </div>
             </div>

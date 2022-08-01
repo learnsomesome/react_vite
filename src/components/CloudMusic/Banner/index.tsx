@@ -54,62 +54,58 @@ const Banner = () => {
     clientSize && fetchBannerData();
   }, [clientSize]);
 
-  return data.length > 0 ? (
-    <div className={classes.banner} style={bgStyle}>
-      <div className={classes.content}>
-        {isLargeClientSize && (
-          <Left
-            className={classes.left}
-            onClick={() => carouselRef.current?.prev()}
-          />
-        )}
-        <Carousel
-          autoplay
-          dots={isLargeClientSize}
-          ref={carouselRef}
-          beforeChange={(currentSlide, nextSlide) => setCurrent(nextSlide)}
-          effect={isLargeClientSize ? "fade" : "scrollx"}
-        >
-          {data?.map((item) => (
-            <div key={item.targetId} className={classes.imageWrap}>
-              <img
-                src={`${
-                  item[isLargeClientSize ? "imageUrl" : "pic"]
-                }?imageView&quality=89`}
-                alt="banner-image"
-              />
-              {!isLargeClientSize && (
-                <span
-                  className={classes.typeText}
-                  style={{
-                    backgroundColor: {
-                      red: "#be333a",
-                      blue: "#1890ff",
-                    }[item.titleColor],
-                  }}
-                >
-                  {item.typeTitle}
-                </span>
-              )}
-            </div>
-          ))}
-        </Carousel>
-        {isLargeClientSize && (
-          <Right
-            className={classes.right}
-            onClick={() => carouselRef.current?.next()}
-          />
-        )}
-      </div>
+  return (
+    <div className={classes.banner}>
+      {data.length > 0 ? (
+        <div className={classes.content}>
+          {isLargeClientSize && (
+            <Left
+              className={classes.left}
+              onClick={() => carouselRef.current?.prev()}
+            />
+          )}
+          <Carousel
+            autoplay
+            dots={isLargeClientSize}
+            ref={carouselRef}
+            beforeChange={(currentSlide, nextSlide) => setCurrent(nextSlide)}
+            effect={isLargeClientSize ? "fade" : "scrollx"}
+          >
+            {data?.map((item) => (
+              <div key={item.targetId} className={classes.imageWrap}>
+                <img
+                  src={`${
+                    item[isLargeClientSize ? "imageUrl" : "pic"]
+                  }?imageView&quality=89`}
+                  alt="banner-image"
+                />
+                {!isLargeClientSize && (
+                  <span
+                    className={classes.typeText}
+                    style={{
+                      backgroundColor: {
+                        red: "#be333a",
+                        blue: "#1890ff",
+                      }[item.titleColor],
+                    }}
+                  >
+                    {item.typeTitle}
+                  </span>
+                )}
+              </div>
+            ))}
+          </Carousel>
+          {isLargeClientSize && (
+            <Right
+              className={classes.right}
+              onClick={() => carouselRef.current?.next()}
+            />
+          )}
+        </div>
+      ) : (
+        <Skeleton round active title={false} paragraph={{ rows: 4 }} />
+      )}
     </div>
-  ) : (
-    <Skeleton
-      round
-      active
-      title={false}
-      paragraph={{ rows: 4 }}
-      className={classes.skeleton}
-    />
   );
 };
 
