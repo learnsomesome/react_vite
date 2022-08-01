@@ -36,11 +36,11 @@ io.interceptors.response.use(
     window.$Loading.end();
 
     error.globalErrorProcess = function () {
-      if (Object.keys(GLOBAL_ERROR_MESSAGES).includes(this.response.status)) {
-        message.error(GLOBAL_ERROR_MESSAGES[this.response.status]);
-      }
+      const msg = error.message || GLOBAL_ERROR_MESSAGES[error.status];
 
-      return Promise.reject(this);
+      msg && message.error(msg);
+
+      return Promise.reject(error);
     };
 
     if (error.config.hasOwnProperty("catch") && error.config.catch === true) {

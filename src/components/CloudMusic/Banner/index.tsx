@@ -55,7 +55,7 @@ const Banner = () => {
   }, [clientSize]);
 
   return (
-    <div className={classes.banner}>
+    <div className={classes.banner} style={bgStyle}>
       {data.length > 0 ? (
         <div className={classes.content}>
           {isLargeClientSize && (

@@ -10,7 +10,8 @@ export const AntdProvider = ({ children }: { children: JSX.Element }) => {
   const _locale = locale === "zh" ? zhCN : enUS;
 
   useEffect(() => {
-    clientSize !== "large" &&
+    clientSize &&
+      clientSize !== "large" &&
       message.config({
         top: 400,
       });
