@@ -3,12 +3,14 @@ import { SEARCH_OPTIONS, SEARCH_TYPE } from "@/utils/constant";
 import { Spin, Tabs } from "antd";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 import PlayListCard, { IPlaySummary } from "../PlayListCard";
 import SongList from "../SongList";
 import classes from "./index.module.scss";
 
 const SearchResList = ({ searchValue }: { searchValue: string }) => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
   const [type, setType] = useState(SEARCH_TYPE.SINGLE);
   const [data, setData] = useState<any>();
   const [loading, setLoading] = useState(false);
@@ -31,6 +33,7 @@ const SearchResList = ({ searchValue }: { searchValue: string }) => {
     if (params.type === SEARCH_TYPE.SONG_LIST) {
       setData(
         res.result.playlists?.map((list) => ({
+          id: list.id,
           name: list.name,
           coverImgUrl: list.coverImgUrl,
           creator: list.creator.nickname,
@@ -76,7 +79,11 @@ const SearchResList = ({ searchValue }: { searchValue: string }) => {
                           key={item.id}
                           type="list"
                           data={item}
-                          onClick={() => {}}
+                          onClick={() =>
+                            navigate(
+                              `/cloud-music/playlist-detail?id=${item.id}`
+                            )
+                          }
                         />
                       ))}
                     </div>

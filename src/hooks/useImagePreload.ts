@@ -10,15 +10,17 @@ export const useImagePreload = ({
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    const img = new Image();
+    if (src) {
+      const img = new Image();
 
-    img.src = src;
+      img.src = src;
 
-    img.onload = () => {
-      setLoaded(true);
+      img.onload = () => {
+        setLoaded(true);
 
-      onLoaded && onLoaded();
-    };
+        onLoaded && onLoaded();
+      };
+    }
   }, [src, onLoaded]);
 
   return loaded;

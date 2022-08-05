@@ -1,11 +1,9 @@
-import { t } from "i18next";
-
 export const REACT_VITE_THEME = "react-vite-theme";
 export const REACT_VITE_LOCALE = "react-vite-locale";
 export const REACT_VITE_CLOUD_MUSIC_BASE_URL =
   "https://vite-cloud-music-api.vercel.app";
 export const GLOBAL_ERROR_MESSAGES: Record<string, string> = {
-  500: t("errors.internal_server_error"),
+  500: "服务器内部错误",
 };
 export enum SEARCH_TYPE {
   SINGLE = "1", // 单曲
@@ -21,6 +19,6 @@ export enum SEARCH_TYPE {
   VIOCE = "2000", // 声音
 }
 export const SEARCH_OPTIONS = [
-  { label: t("single"), value: SEARCH_TYPE.SINGLE },
-  { label: t("song_list"), value: SEARCH_TYPE.SONG_LIST },
+  { label: "单曲", value: SEARCH_TYPE.SINGLE },
+  { label: "歌单", value: SEARCH_TYPE.SONG_LIST },
 ];

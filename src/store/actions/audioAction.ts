@@ -1,5 +1,5 @@
 import { Dispatch } from "redux";
-import { message as _message } from "antd";
+import { message, message as _message } from "antd";
 import { IPlayType } from "../reducers/audioReducer";
 import { checkMusic, getSongUrl } from "@/api/music";
 
@@ -32,11 +32,16 @@ export const updateCurrentSong = (id: number) => ({
 });
 
 export const updateSongsList =
-  (song: { id: number }) => async (dispatch: Dispatch, getState: any) => {
+  (song: { id: number }, playNow: boolean = true) =>
+  async (dispatch: Dispatch, getState: any) => {
     const { currentSong, songsList } = getState().audioReducer;
 
     if (songsList[song.id]) {
-      currentSong !== song.id && dispatch(updateCurrentSong(song.id));
+      if (playNow) {
+        currentSong !== song.id && dispatch(updateCurrentSong(song.id));
+      } else {
+        message.error("该歌曲已在播放列表中");
+      }
 
       return;
     }
@@ -60,7 +65,10 @@ export const updateSongsList =
         type: UPDATE_SONGS_LIST,
         payload: { song: { ...song, source: data[0] } },
       });
-      dispatch(updateCurrentSong(song.id));
+      (Object.keys(songsList).length === 0 || playNow) &&
+        dispatch(updateCurrentSong(song.id));
+
+      if (!playNow) message.success("歌曲已添加至播放列表");
     }
   };
 

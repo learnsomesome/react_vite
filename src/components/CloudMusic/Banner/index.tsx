@@ -1,7 +1,7 @@
 import { getBanner, IBanner } from "@/api/music";
 import { Left, Right } from "@/assets/svg";
 import { LocalContext } from "@/provider/LocalProvider";
-import { Carousel, Skeleton } from "antd";
+import { Carousel, message, Skeleton } from "antd";
 import {
   CSSProperties,
   useContext,
@@ -61,7 +61,11 @@ const Banner = () => {
             effect={isLargeClientSize ? "fade" : "scrollx"}
           >
             {data?.map((item) => (
-              <div key={item.targetId} className={classes.imageWrap}>
+              <div
+                key={item.targetId}
+                className={classes.imageWrap}
+                onClick={() => message.info("开发中...😅")}
+              >
                 <img
                   src={`${
                     item[isLargeClientSize ? "imageUrl" : "pic"]

@@ -26,3 +26,4 @@ export { ReactComponent as Random } from "./random.svg";
 export { ReactComponent as SingleLoop } from "./single_loop.svg";
 export { ReactComponent as ListLoop } from "./list_loop.svg";
 export { ReactComponent as Search } from "./search.svg";
+export { ReactComponent as AddMusic } from "./add_music.svg";

@@ -1,0 +1,45 @@
+.moreOperation {
+  :global {
+    .ant-drawer-content-wrapper .ant-drawer-content {
+      border-top-left-radius: 16px;
+      border-top-right-radius: 16px;
+
+      .ant-drawer-body {
+        padding: 0;
+      }
+    }
+  }
+
+  .header {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    border-bottom: 1px solid;
+    @include systemTheme("border-color", "default-border-color");
+
+    img {
+      border-radius: 8px;
+      margin-right: 16px;
+    }
+
+    .info {
+      & > div:last-child {
+        font-size: 12px;
+        @include systemTheme("color", "secondary-font-color");
+      }
+    }
+  }
+
+  .operation {
+    & > div {
+      display: flex;
+      align-items: center;
+      padding: 16px;
+      font-size: 16px;
+
+      svg {
+        margin-right: 16px;
+      }
+    }
+  }
+}
