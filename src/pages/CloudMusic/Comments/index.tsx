@@ -20,7 +20,7 @@ const MobileComments = () => {
       : `${t("comment")} (${formatCountDisplay(totalCount, 100 * 10000)})`;
 
   return (
-    <div className="comments">
+    <div className="comments" style={{ padding: "16px" }}>
       <AppBar title={title} />
       <Divider style={{ margin: "16px 0" }} />
       <Comments

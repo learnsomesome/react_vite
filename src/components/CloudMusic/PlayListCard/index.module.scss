@@ -44,3 +44,39 @@
     -webkit-box-orient: vertical;
   }
 }
+
+.list {
+  cursor: pointer;
+  padding: 8px 0;
+
+  .content {
+    display: flex;
+    align-items: center;
+
+    img {
+      border-radius: 8px;
+      width: 48px;
+      height: 48px;
+      margin-right: 8px;
+    }
+
+    .title {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .description {
+      font-size: 12px;
+      @include systemTheme("color", "secondary-font-color");
+    }
+  }
+
+  .tags {
+    padding-left: 54px;
+
+    span {
+      margin-top: 4px;
+    }
+  }
+}

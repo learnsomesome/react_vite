@@ -1,31 +1,11 @@
+import { getComments, IComments } from "@/api/music";
 import { Like, Liked } from "@/assets/svg";
 import { LocalContext } from "@/provider/LocalProvider";
 import { formatCountDisplay } from "@/utils/common";
-import io from "@/utils/io";
 import { Avatar, Comment, Segmented, Spin } from "antd";
 import { useContext, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import classes from "./index.module.scss";
-
-type IComment = {
-  user: {
-    userId: number;
-    avatarUrl: string;
-    nickname: string;
-  };
-  commentId: number;
-  content: string;
-  timeStr: string;
-  likedCount: number;
-  replyCount: number;
-  liked: boolean;
-};
-
-type IComments = {
-  comments: IComment[];
-  hasMore: boolean;
-  totalCount: number;
-};
 
 type IParmas = {
   id: string;
@@ -65,9 +45,7 @@ const Comments = ({
   const fetchComments = async (_params: IParmas) => {
     setSpinning(true);
 
-    const res: { data: IComments } = await io.get("/comment/new", {
-      params: _params,
-    });
+    const res = await getComments(_params);
 
     setData(res.data);
     afterCommentsFetched && afterCommentsFetched(res.data);

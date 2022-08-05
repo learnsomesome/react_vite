@@ -23,6 +23,15 @@ declare module "axios" {
   }
 }
 
+import "antd";
+
+declare module "antd" {
+  export interface TabsProps {
+    activeKey?: any;
+    onChange?: (activeKey: any) => void;
+  }
+}
+
 declare global {
   interface Window {
     $Loading: {

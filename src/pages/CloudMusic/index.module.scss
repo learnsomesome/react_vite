@@ -4,4 +4,8 @@
   @include clientSize("medium") {
     min-width: unset;
   }
+
+  .content {
+    padding: 16px;
+  }
 }

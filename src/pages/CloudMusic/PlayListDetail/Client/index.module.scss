@@ -1,4 +1,5 @@
 .playlistDetail {
+  padding: 16px;
   display: flex;
 
   .contentWrap {
@@ -69,12 +70,6 @@
           span {
             font-size: 12px;
             @include systemTheme("color", "secondary-font-color");
-          }
-        }
-
-        :global {
-          .ant-table {
-            font-size: 12px;
           }
         }
       }

@@ -1,8 +1,7 @@
-import { ITrack } from "@/pages/CloudMusic/PlayListDetail";
-import io from "@/utils/io";
 import { Dispatch } from "redux";
 import { message as _message } from "antd";
 import { IPlayType } from "../reducers/audioReducer";
+import { checkMusic, getSongUrl } from "@/api/music";
 
 export const INIT_AUDIO = "INIT_AUDIO";
 export const UPDATE_HIDE = "UPDATE_HIDE";
@@ -33,7 +32,7 @@ export const updateCurrentSong = (id: number) => ({
 });
 
 export const updateSongsList =
-  (song: ITrack) => async (dispatch: Dispatch, getState: any) => {
+  (song: { id: number }) => async (dispatch: Dispatch, getState: any) => {
     const { currentSong, songsList } = getState().audioReducer;
 
     if (songsList[song.id]) {
@@ -44,22 +43,16 @@ export const updateSongsList =
 
     window.$Loading.start();
 
-    const res = await io
-      .get("/check/music", {
-        params: { id: song.id },
-      })
-      .catch((error) => {
-        if (error.response.status === 404) {
-          return _message.error(error.response.data.message);
-        }
+    const res = await checkMusic({ id: song.id }).catch((error) => {
+      if (error.response.status === 404) {
+        return _message.error(error.response.data.message);
+      }
 
-        return error.globalErrorProcesser();
-      });
+      return error.globalErrorProcesser();
+    });
 
     if (res.success) {
-      const { data } = await io.get("/song/url", {
-        params: { id: song.id },
-      });
+      const { data } = await getSongUrl({ id: song.id });
 
       window.$Loading.end();
 

@@ -25,3 +25,4 @@ export { ReactComponent as Acoustic } from "./acoustic.svg";
 export { ReactComponent as Random } from "./random.svg";
 export { ReactComponent as SingleLoop } from "./single_loop.svg";
 export { ReactComponent as ListLoop } from "./list_loop.svg";
+export { ReactComponent as Search } from "./search.svg";

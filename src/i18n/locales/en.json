@@ -11,7 +11,9 @@
     "delete": "Delete",
     "loading": "Loading...",
     "expand": "Expand",
-    "collapse": "Collapse"
+    "collapse": "Collapse",
+    "login": "Login",
+    "cancel": "Cancel"
   },
   "undone": "UnDone",
   "done": "Done",
@@ -35,5 +37,6 @@
   "currently_playing": "Currently Playing",
   "errors": {
     "internal_server_error": "Internal server error"
-  }
+  },
+  "single": "Single"
 }

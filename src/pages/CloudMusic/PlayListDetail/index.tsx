@@ -1,5 +1,5 @@
+import { getPlayListDetail, getSongDetail, IPlayListDetail } from "@/api/music";
 import { LocalContext } from "@/provider/LocalProvider";
-import io from "@/utils/io";
 import { Spin } from "antd";
 import { useContext, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -28,31 +28,6 @@ export type ITrack = {
   fee: number;
 };
 
-export type ISubscriber = {
-  userId: string;
-  avatarUrl: string;
-  nickname: string;
-};
-
-export type IPlayListDetail = {
-  name: string;
-  playCount: number;
-  coverImgUrl: string;
-  createTime: number;
-  tags: string[];
-  description: string;
-  trackCount: number;
-  subscribedCount: number;
-  commentCount: number;
-  shareCount: number;
-  subscribers: ISubscriber[];
-  creator: {
-    avatarUrl: string;
-    nickname: string;
-  };
-  tracks: ITrack[];
-};
-
 export type ITrackSource = {
   fee: number;
   freeTrialInfo: {
@@ -72,12 +47,13 @@ const PlayListDetailDivert = () => {
 
   const fetchPlayListDetail = async () => {
     if (id) {
-      const res: { playlist: IPlayListDetail } = await io.get(
-        "/playlist/detail",
-        { params: { id } }
-      );
+      const res = await getPlayListDetail({ id });
 
-      setData(res.playlist);
+      const songsDetail = await getSongDetail({
+        ids: res.playlist.tracks.map(({ id }) => id).join(","),
+      });
+
+      setData({ ...res.playlist, tracks: songsDetail.songs });
     }
   };
 

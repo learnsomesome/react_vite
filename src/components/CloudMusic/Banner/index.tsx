@@ -1,6 +1,6 @@
+import { getBanner, IBanner } from "@/api/music";
 import { Left, Right } from "@/assets/svg";
 import { LocalContext } from "@/provider/LocalProvider";
-import io from "@/utils/io";
 import { Carousel, Skeleton } from "antd";
 import {
   CSSProperties,
@@ -11,15 +11,6 @@ import {
   useState,
 } from "react";
 import classes from "./index.module.scss";
-
-type IBanner = {
-  imageUrl?: string;
-  pic?: string;
-  titleColor: string;
-  typeTitle: string;
-  url: string;
-  targetId: number;
-};
 
 const Banner = () => {
   const carouselRef = useRef<any>(null);
@@ -43,9 +34,7 @@ const Banner = () => {
   );
 
   const fetchBannerData = async () => {
-    const res: { banners: IBanner[] } = await io.get("/banner", {
-      params: { type: isLargeClientSize ? 0 : 2 },
-    });
+    const res = await getBanner({ type: isLargeClientSize ? 0 : 2 });
 
     setData(res.banners ?? []);
   };

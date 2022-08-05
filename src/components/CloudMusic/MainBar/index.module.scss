@@ -1,0 +1,13 @@
+.mainBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  border-bottom: 1px solid;
+  height: 48px;
+  padding: 0 16px;
+  @include systemTheme("border-color", "default-border-color");
+  @include systemTheme("background-color", "secondary-background-color");
+}

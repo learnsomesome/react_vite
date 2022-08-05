@@ -5,7 +5,11 @@ $active-music-font-color: #e84749;
 $light-theme-variables: (
   "default-font-color": #000,
   "secondary-font-color": #00000073,
-  "default-border-color": rgba(0, 0, 0, 0.12),
+  "default-border-color":
+    rgba(
+      $color: #000000,
+      $alpha: 0.12,
+    ),
   "active-border-color": #1890ff,
   "secondary-background-color": #fdfdfd,
   "active-background-color": #f6f6f6,
@@ -14,8 +18,16 @@ $light-theme-variables: (
 // dark custom theme
 $dark-theme-variables: (
   "default-font-color": #fff,
-  "secondary-font-color": rgba(255, 255, 255, 0.6),
-  "default-border-color": rgba(255, 255, 255, 0.12),
+  "secondary-font-color":
+    rgba(
+      $color: #fff,
+      $alpha: 0.6,
+    ),
+  "default-border-color":
+    rgba(
+      $color: #fff,
+      $alpha: 0.12,
+    ),
   "active-border-color": #177ddc,
   "secondary-background-color": #0d0d0d,
   "active-background-color": #1f1f21,

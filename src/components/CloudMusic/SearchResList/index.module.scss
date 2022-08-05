@@ -1,0 +1,17 @@
+.searchResList {
+  :global {
+    .ant-tabs > .ant-tabs-nav,
+    .ant-tabs > div > .ant-tabs-nav {
+      margin: -16px 0 0;
+      position: sticky;
+      top: 48px;
+      z-index: 99;
+      backdrop-filter: blur(4px);
+      @include customizeTheme(
+        "background-color",
+        $light: rgba($color: #fff, $alpha: 0.4),
+        $dark: rgba($color: #000, $alpha: 0.4)
+      );
+    }
+  }
+}

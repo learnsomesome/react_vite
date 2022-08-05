@@ -11,7 +11,10 @@
     "delete": "删除",
     "loading": "加载中...",
     "expand": "展开",
-    "collapse": "收起"
+    "collapse": "收起",
+    "login": "登录",
+    "search": "搜索",
+    "cancel": "取消"
   },
   "undone": "未完成",
   "done": "已完成",
@@ -36,5 +39,6 @@
   "currently_playing": "当前播放",
   "errors": {
     "internal_server_error": "服务器内部错误"
-  }
+  },
+  "single": "单曲"
 }

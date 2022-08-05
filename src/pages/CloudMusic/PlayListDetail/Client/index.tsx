@@ -1,12 +1,12 @@
+import { IPlayListDetail, ISong } from "@/api/music";
 import { ExpandDown, FoldUp } from "@/assets/svg";
 import Comments from "@/components/CloudMusic/Comments";
 import PlayListCard from "@/components/CloudMusic/PlayListCard";
-import { formatDurationDisplay } from "@/utils/common";
-import { Avatar, Button, Table, Tag } from "antd";
+import SongList from "@/components/CloudMusic/SongList";
+import { Avatar, Button, Tag } from "antd";
 import moment from "moment";
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { IAlbum, IPlayListDetail, ISinger, ITrack } from "..";
 import classes from "./index.module.scss";
 
 const PlayListDetail = ({
@@ -23,48 +23,16 @@ const PlayListDetail = ({
     data?.description.length > 100
   );
 
-  const columns = useMemo(
-    () => [
-      {
-        key: "no",
-        render: (text: number, record: ITrack, index: number) => index + 1,
-      },
-      {
-        ellipsis: true,
-        width: 240,
-        title: t("song_title"),
-        dataIndex: "name",
-      },
-      {
-        title: t("duration"),
-        dataIndex: "dt",
-        render: (dt: number) => formatDurationDisplay(dt),
-      },
-      {
-        ellipsis: true,
-        title: t("singer"),
-        dataIndex: "ar",
-        render: (ar: ISinger[]) => ar.map(({ name }) => name).join("/"),
-      },
-      {
-        ellipsis: true,
-        title: t("album"),
-        dataIndex: "al",
-        render: (al: IAlbum) => al.name,
-      },
-      {},
-    ],
-    []
-  );
-
   return (
     <div className={classes.playlistDetail}>
       <div className={classes.contentWrap}>
         <main className={classes.content}>
           <section className={classes.summary}>
             <PlayListCard
-              playCount={data.playCount}
-              picUrl={data.coverImgUrl}
+              data={{
+                playCount: data.playCount,
+                coverImgUrl: data.coverImgUrl,
+              }}
             />
             <div className={classes.info}>
               <h2 className={classes.title}>{data.name}</h2>
@@ -120,12 +88,7 @@ const PlayListDetail = ({
                 {data.trackCount} {t("songs")}
               </span>
             </div>
-            <Table
-              rowKey="id"
-              dataSource={data.tracks}
-              columns={columns}
-              pagination={false}
-            />
+            <SongList data={data.tracks as ISong[]} />
           </section>
           <section className={classes.comments}>
             <Comments id={id} type={2} />

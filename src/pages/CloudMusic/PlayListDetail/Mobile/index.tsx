@@ -1,23 +1,14 @@
-import {
-  Acoustic,
-  CollectFolder,
-  Comment,
-  More,
-  Right,
-  Share,
-} from "@/assets/svg";
+import { IPlayListDetail, ISong } from "@/api/music";
+import { CollectFolder, Comment, Right, Share } from "@/assets/svg";
 import AppBar from "@/components/AppBar";
 import ControlBar from "@/components/CloudMusic/ControlBar";
 import PlayListCard from "@/components/CloudMusic/PlayListCard";
-import { IRootState } from "@/store";
-import { updateSongsList } from "@/store/actions/audioAction";
+import SongList from "@/components/CloudMusic/SongList";
 import { formatCountDisplay } from "@/utils/common";
-import { Avatar, List, Skeleton, Tag } from "antd";
+import { Avatar, Tag } from "antd";
 import { useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { IPlayListDetail } from "..";
 import classes from "./index.module.scss";
 
 const MobilePlayListDetail = ({
@@ -30,10 +21,6 @@ const MobilePlayListDetail = ({
   theme: string;
 }) => {
   const { t } = useTranslation();
-  const { currentSongId } = useSelector(
-    (state: IRootState) => state.audioReducer
-  );
-  const dispatch = useDispatch();
   const navigate = useNavigate();
   const maskRef = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
@@ -49,8 +36,10 @@ const MobilePlayListDetail = ({
         <AppBar className={classes.appBar} title={t("song_list")} />
         <div className={classes.content}>
           <PlayListCard
-            playCount={data.playCount}
-            picUrl={data.coverImgUrl}
+            data={{
+              playCount: data.playCount,
+              coverImgUrl: data.coverImgUrl,
+            }}
             onClick={onMaskVisible}
           />
           <div className={classes.info}>
@@ -100,39 +89,7 @@ const MobilePlayListDetail = ({
         </div>
       </section>
       <section className={classes.tracks}>
-        <List
-          itemLayout="horizontal"
-          dataSource={data.tracks}
-          renderItem={(track, index) => (
-            <List.Item
-              className={currentSongId === track.id ? classes.active : ""}
-              actions={[<More width={28} height={28} />]}
-              onClick={() => dispatch(updateSongsList(track))}
-            >
-              <Skeleton active title={false} loading={data.tracks.length === 0}>
-                <List.Item.Meta
-                  avatar={
-                    currentSongId === track.id ? (
-                      <Acoustic className={classes.acoustic} />
-                    ) : (
-                      <span>{index}</span>
-                    )
-                  }
-                  title={track.name}
-                  description={
-                    <>
-                      {track.fee === 1 && <Tag color="volcano">VIP</Tag>}
-                      {track.sq && <Tag color="red">SQ</Tag>}
-                      <span>{`${track.ar.map(({ name }) => name).join("/")} - ${
-                        track.al.name
-                      }`}</span>
-                    </>
-                  }
-                />
-              </Skeleton>
-            </List.Item>
-          )}
-        />
+        <SongList data={data.tracks as ISong[]} />
       </section>
       <div
         ref={maskRef}

@@ -1,3 +1,4 @@
+import { getRecPlayList, IRecPlayListItem } from "@/api/music";
 import io from "@/utils/io";
 import { Skeleton } from "antd";
 import { useEffect, useState } from "react";
@@ -6,23 +7,13 @@ import { useNavigate } from "react-router-dom";
 import PlayListCard from "../PlayListCard";
 import classes from "./index.module.scss";
 
-type IPlayListItem = {
-  id: number;
-  name: string;
-  picUrl: string;
-  playCount: number;
-  trackCount: number;
-};
-
 const PlayListRec = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
-  const [data, setData] = useState<IPlayListItem[]>([]);
+  const [data, setData] = useState<IRecPlayListItem[]>([]);
 
   const fetchPlayListData = async () => {
-    const res: { result: IPlayListItem[] } = await io.get("/personalized", {
-      params: { limit: 12 },
-    });
+    const res = await getRecPlayList({ limit: 12 });
 
     setData(res.result ?? []);
   };
@@ -42,9 +33,11 @@ const PlayListRec = () => {
             <PlayListCard
               className={classes.playListCard}
               key={item.id}
-              playCount={item.playCount}
-              picUrl={item.picUrl}
-              name={item.name}
+              data={{
+                name: item.name,
+                coverImgUrl: item.picUrl,
+                playCount: item.playCount,
+              }}
               onClick={() =>
                 navigate(`/cloud-music/playlist-detail?id=${item.id}`)
               }
